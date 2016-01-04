@@ -128,7 +128,7 @@ app.data = {
 
 		"ensembles" : {
 			"1" : {
-				"text": "\"Lena\" Quilted Lambskin and Mink Jacket (€3,900), \"Amazone\" Lambskin Skirt (€1,100)",
+				"text": "\"Lena\" Quilted Lambskin and Mink Jacket, \"Amazone\" Lambskin Skirt",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/1/all_front.jpg",
@@ -141,7 +141,7 @@ app.data = {
 				]
 			},
 			"2" : {
-				"text": "\"Rio Bravo\" Lambskin Waistcoat (€570), \"Amazone\" Lambskin Skirt (€1,100)",
+				"text": "\"Rio Bravo\" Lambskin Waistcoat, \"Amazone\" Lambskin Skirt",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/2/all_front.jpg",
@@ -154,7 +154,7 @@ app.data = {
 				]
 			},
 			"3" : {
-				"text": "\"Danube\" Lambskin Top (€900), Detatchable Blue Astrakhan Fur Collar (€180), \"Amazone\" Lambskin Skirt (€1,100), Black or Honey Lambskin Belt, 2cm (€180)",
+				"text": "\"Danube\" Lambskin Top, Detatchable Blue Astrakhan Fur Collar, \"Amazone\" Lambskin Skirt, Black or Honey Lambskin Belt, 2cm",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/3/all_front.jpg",
@@ -167,7 +167,7 @@ app.data = {
 				]
 			},
 			"4" : {
-				"text": "\"Tage\" Lambskin Top (€700), Detatchable Blue or Brown Astrakhan Fur Collar (€180), \"Amazone\" Lambskin Skirt (€1,100)",
+				"text": "\"Tage\" Lambskin Top, Detatchable Blue or Brown Astrakhan Fur Collar, \"Amazone\" Lambskin Skirt",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/4/all_front.jpg",
@@ -180,7 +180,7 @@ app.data = {
 				]
 			},
 			"5" : {
-				"text": "\"Tage\" Lambskin Top (€700), Detatchable Brown Astrakhan Fur Collar (€180), \"Parana\" Lambskin Shorts (€450)",
+				"text": "\"Tage\" Lambskin Top, Detatchable Brown Astrakhan Fur Collar, \"Parana\" Lambskin Shorts",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/5/all_front.jpg",
@@ -189,7 +189,7 @@ app.data = {
 				]
 			},
 			"6" : {
-				"text": "\"Danube\" Lambskin Top (€900), Detatchable Blue or Brown Astrakhan Fur Collar (€180), \"Rio Grande\" Lambskin Trousers (€750)",
+				"text": "\"Danube\" Lambskin Top, Detatchable Blue or Brown Astrakhan Fur Collar, \"Rio Grande\" Lambskin Trousers",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/6/all_front.jpg",
@@ -198,7 +198,7 @@ app.data = {
 				]
 			},
 			"7" : {
-				"text": "\"Escapade\" Leather Trench Coat (€1,800), Detatchable Fox Fur Collar (€850)",
+				"text": "\"Escapade\" Leather Trench Coat, Detatchable Fox Fur Collar",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/7/with_front.jpg",
@@ -211,7 +211,7 @@ app.data = {
 				]
 			},
 			"8" : {
-				"text": "\"Abeille\" Leather Dress Coat (€950) and Black Silk Crêpe Under-dress (together: €1,350), Detatchable Honey Yellow Astrakhan Fur Collar (€180)",
+				"text": "\"Abeille\" Leather Dress Coat and Black Silk Crêpe Under-dress, Detatchable Honey Yellow Astrakhan Fur Collar",
 				"views": [
 					{
 						"mainurl": "/img/collection/winter-2015/8/with_front.jpg",
@@ -229,22 +229,22 @@ app.data = {
 			"slides": [
 				{
 					url: "/img/collection/winter-2015/accessories/fox_collar.jpg",
-					text: "Detatchable Fox Fur Collar €850",
+					text: "Detatchable Fox Fur Collar",
 					link: ""
 				},
 				{
 					url: "/img/collection/winter-2015/accessories/belts.jpg",
-					text: "Black or Honey Lambskin Belt (2cm) €180, Calfskin Belt (4cm) €230, Lambskin Belt (4cm) €250",
+					text: "Black or Honey Lambskin Belt (2cm), Calfskin Belt (4cm), Lambskin Belt (4cm)",
 					link: ""
 				},
 				{
 					url: "/img/collection/winter-2015/accessories/astrakhan_collar.jpg",
-					text: "Detatchable Blue or Brown Astrakhan Fur Collar €180",
+					text: "Detatchable Blue or Brown Astrakhan Fur Collar",
 					link: ""
 				},
 				{
 					url: "/img/collection/winter-2015/accessories/ruffled_bag.jpg",
-					text: "Brown Ruffled Lambskin Bag, Leather Interior €600",
+					text: "Brown Ruffled Lambskin Bag, Leather Interior",
 					link: ""
 				},
 			],
@@ -297,7 +297,7 @@ app.data = {
 
 		"ensembles" : {
 			"1" : {
-				"text": "\"Congo\" Trench Coat (€1,800)",
+				"text": "\"Congo\" Trench Coat",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/1/full_trench_congo_front.jpg",
@@ -309,7 +309,7 @@ app.data = {
 				]
 			},
 			"2" : {
-				"text": "\"Casamance\" Sleeveless Top (€480), \"Parana\" Lambskin Shorts (€450)",
+				"text": "\"Casamance\" Sleeveless Top, \"Parana\" Lambskin Shorts",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/2/full_casamance_parana_front.jpg",
@@ -320,7 +320,7 @@ app.data = {
 				]
 			},
 			"3" : {
-				"text": "Safari Lambskin Jacket (€1,500), \"Segura\" Pirate Trousers (€690)",
+				"text": "Safari Lambskin Jacket, \"Segura\" Pirate Trousers",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/3/full_safari_segura_front.jpg",
@@ -331,7 +331,7 @@ app.data = {
 				]
 			},
 			"4" : {
-				"text": "\"Tage\" Short Sleeve Top (€700), \"Parana\" Lambskin Shorts (€450)",
+				"text": "\"Tage\" Short Sleeve Top, \"Parana\" Lambskin Shorts",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/4/full_tage_parana_pouch_front.jpg",
@@ -342,7 +342,7 @@ app.data = {
 				]
 			},
 			"5" : {
-				"text": "\"Caballitos\" Embroidered Dress (€900)",
+				"text": "\"Caballitos\" Embroidered Dress",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/5/full_caballitos_front.jpg",
@@ -353,7 +353,7 @@ app.data = {
 				] 
 			},
 			"6" : {
-				"text": "Midnight Blue \"Tocantin\" Blazer (€1200)",
+				"text": "Midnight Blue \"Tocantin\" Blazer",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/6/full_tocantin_front.jpg",
@@ -361,7 +361,7 @@ app.data = {
 				] 
 			},
 			"7" : {
-				"text": "\"Abeille\" Leather Dress Coat (€950) and Black Silk Crêpe Under-dress (together: €1,350)",
+				"text": "\"Abeille\" Leather Dress Coat and Black Silk Crêpe Under-dress",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/7/full_abeille_front.jpg",
@@ -369,7 +369,7 @@ app.data = {
 				] 
 			},
 			"8" : {
-				"text": "\"Casamance\" Sleeveless Top (€480), \"Segura\" Pirate Trousers (€690)",
+				"text": "\"Casamance\" Sleeveless Top, \"Segura\" Pirate Trousers",
 				"views": [
 					{
 						"mainurl": "/img/collection/summer-2016/8/top_casamance_segura_front.jpg",
@@ -383,7 +383,7 @@ app.data = {
 			"slides": [
 				{
 					url: "/img/collection/summer-2016/accessories/pouch.jpg",
-					text: "Pouch in Blue, Gray or Midnight Blue €200",
+					text: "Pouch in Blue, Gray or Midnight Blue",
 					link: ""
 				},
 			],
