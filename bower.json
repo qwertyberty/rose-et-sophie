@@ -1,0 +1,24 @@
+{
+  "name": "rose_et_sophie",
+  "version": "0.0.0",
+  "authors": [
+    "Winston Berty <w.berty@gmail.com>"
+  ],
+  "description": "The official website of the rose et sophie fashion line",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer",
+    "iron-elements": "PolymerElements/iron-elements",
+    "paper-elements": "PolymerElements/paper-elements",
+    "platinum-elements": "PolymerElements/platinum-elements",
+    "neon-elements": "PolymerElements/neon-elements",
+    "app-router": "~2.6.1"
+  }
+}

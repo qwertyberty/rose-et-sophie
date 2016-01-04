@@ -1,0 +1,39 @@
+<link rel="import" href="/elements/win-carousel/win-carousel.html">
+
+<dom-module id="page-home">
+	<style is="custom-style">
+		win-carousel {
+		  --win-carousel-control-color: var(--primary-accent-color);
+		  --win-carousel-bg-color: var(--primary-bg-color);
+		  --win-carousel-control-size: 3em;
+		  --win-carousel-text-theme: {
+		    line-height: 3em;
+		    height: 3em;
+		    text-decoration: none;
+		    color: var(--primary-text-color);
+		  };
+		}
+	</style>
+	
+	<template>
+		<win-carousel data="{{data}}"></win-carousel>
+	</template>
+	<script>
+		Polymer({
+			is: 'page-home',
+			properties: {
+				data: {
+					type: Object,
+					value: function() { return {}; },
+				},
+			},
+			computeData: function(lang) {
+				return app[lang].home;
+			},
+			ready: function() {
+				this.data = app.data.home; 
+				//console.log(this.data);
+			}
+		});
+	</script>
+</dom-module>

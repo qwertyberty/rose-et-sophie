@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Rose et Sophie | The Official Website</title>
+        <meta name="description" content="Discover the latest leather ready-to-wear and accessory collections by Rose et Sophie">       
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/normalize.min.css"><!-- fix some browser dependent css problems -->
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+
+        <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script><!-- polyfill for webcomponents -->
+
+        <link rel="import" href="styles/app-theme.html"><!-- polymer custom stylsheet import for app theme -->
+
+        <!-- top-level google web component imports -->
+        <link rel="import" href="bower_components/iron-image/iron-image.html">
+        <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+        <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+        <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
+        <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+        <link rel="import" href="bower_components/paper-button/paper-button.html">
+        <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+        <link rel="import" href="bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+        <!-- my components -->
+        <link rel="import" href="elements/win-menu/win-menu.html">
+        <!-- other vendor components -->
+        <link rel="import" href="bower_components/app-router/app-router.html">
+    </head>
+    <body class="fullbleed"><!-- fill available space, arrange children vertically -->
+        <template is="dom-bind" id="app">
+            <paper-header-panel mode="seemed">
+              <div class="paper-header"><!-- the class gives this the header behaviour -->
+                <a href="/">
+                  <iron-image id="main-logo" class="middle" style="height:128px; width: 100%;" sizing="contain" src="img/logo_main.png"></iron-image>
+                </a>
+                <div id="social">
+                  <a href="https://www.facebook.com/Rose-et-Sophie-1416094532050144/timeline/" target="_blank"><img src="/img/facebook_icon.png"></a>
+                  <a href="https://twitter.com/roseetsophie" target="_blank"><img src="/img/twitter_icon.png"></a>
+                  <a href="https://instagram.com/roseetsophie/" target="_blank"><img src="/img/instagram_icon.png"></a>
+                </div>
+              </div>
+              
+              <div class="fit vertical layout"><!-- the other non-header block forms the content -->
+                <paper-drawer-panel responsive-width="768px" drawer-width="200px">
+                  <win-menu drawer data="{{getData()}}" menu-open>
+                      <footer>
+                          &copy; Rose et Sophie 2015
+                      </footer>
+                  </win-menu><!-- the drawer attribute sets this block as the drawer in paper-drawer-panel -->
+                  <div main id="content"><!-- the main attribute sets this block as the main section in paper-drawer-panel -->
+                    <paper-icon-button icon="icons:menu" paper-drawer-toggle></paper-icon-button>
+                    <app-router trailingSlash="ignore">
+                      <app-route path="/" import="pages/page-home.html"></app-route>
+                      <app-route path="/:collection/accessories" import="pages/page-accessories.html"></app-route>
+                      <app-route path="/:collection" import="pages/page-collection.html"></app-route>
+                      <app-route path="/:collection/:ensemble" import="pages/page-ensemble.html"></app-route>
+                      <app-route path="*" redirect="/"></app-route>
+                    </app-router>
+                  </div>
+                </paper-drawer-panel>
+              </div>
+            </paper-header-panel>
+            <paper-dialog id="tcs">
+              <h2>Terms and Conditions</h2>
+              <paper-dialog-scrollable>
+                <strong>PUBLISHER - CONTACT</strong><br />
+                ROSE ET SOPHIE<br />
+                Simplified joint-stock company under French law with a capital of €20,000<br />
+                Head office: 164 Rue de Vaugirard 75005 Paris<br />
+                800 636 136 RCS PARIS<br />
+                SIRET: 800 636 136 000 15<br />
+                VAT: FR 46800636136<br />
+                Tel: +33(0)787591448<br />
+                Person responsable for publication: Nicole FERRARO<br />
+                Our Customer Service Department is available to answer any questions you might have. You can contact us at any time by email, at the following address: contact@roseetsophie.com<br />
+                <strong>Hosting By</strong><br />
+                http://aws.amazon.com/s3/
+              </paper-dialog-scrollable>
+              <div class="buttons">
+                <paper-button dialog-confirm>Close</paper-button>
+              </div>
+            </paper-dialog>
+
+            <paper-dialog id="contact">
+              <h2>Contact</h2>
+              <paper-dialog-scrollable>
+                Email : contact@roseetsophie.com<br />
+                France : 00 33 (0)7 87 59 14 48<br />
+                Address : 164 Rue de Vaugirard, 75015 Paris, France
+              </paper-dialog-scrollable>
+              <div class="buttons">
+                <paper-button dialog-confirm>Close</paper-button>
+              </div>
+            </paper-dialog>
+        </template>
+        <script src="js/main-v1-0-0.js"></script>
+    </body>
+</html>

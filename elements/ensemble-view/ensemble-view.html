@@ -1,0 +1,244 @@
+<link rel="import" href="../../bower_components/iron-icons/image-icons.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="ensemble-view">
+	<style>
+		:host {
+			display: block;
+			height: 100%;
+			margin: 0 0em;
+			@apply(--layout-horizontal);
+			@apply(--layout-center-justified);
+		}
+
+		#thumbnail-wrapper {
+			@apply(--layout-vertical);
+			@apply(--layout-start-justified);
+			height: calc(100% - 3em);
+		}
+
+		#thumbnail-wrapper img {
+			display: block;
+			height: calc(33% - 12px);
+			margin: 12px 12px 0 12px;
+		}
+
+		#thumbnail-wrapper img:first-of-type {
+			margin-top: 0;
+		}
+
+		#thumbnail-wrapper img[is-hero] {
+			border: 1px solid;
+			border-color: var(--thumb-border-color);
+		}
+
+		#hero-wrapper {
+			height: calc(100% - 3em);
+			width: auto;
+		}
+
+		#hero-wrapper img {
+			height: 100%;
+			width: auto;
+			display: block;
+		}
+
+		#text-wrapper {
+			padding: 0 0 0 12px;
+			height: calc(100% - 3em);
+			max-width: 15em;
+			@apply(--layout-vertical);
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+		}
+
+		#text {
+			font-size: 0.75em;
+		}
+
+		#flip-wrapper {
+			@apply(--layout-end);
+			@apply(--layout-flex);
+			@apply(--layout-horizontal);
+			font-size: 0.75em;
+		}
+
+		#flip-wrapper iron-icon {
+			width: 1.25em;
+			height: 1.25em;
+		}
+
+		#flip-subwrapper:hover, #thumbnail-wrapper img:hover {
+			cursor: pointer;
+		}
+
+		#spacer {
+			display: none; /*because text is much wider than thumbnails*/
+			/*width: 200px;
+			height: 100%;*/
+		}
+
+		#controls {
+			display: none;
+		}
+
+		@media all and (max-width: 768px) {
+			#spacer {
+				display: none;
+			}
+
+			#thumbnail-wrapper {
+				display: none!important;
+			}
+
+			#controls {
+				@apply(--layout-horizontal);
+				display: block;
+				width: 100%;
+				padding-top: 1em; 
+			}
+
+			.control {
+				width: 2em;
+				height: 2em;
+			}
+			
+		}
+	</style>
+
+	<template>
+		<div id="thumbnail-wrapper">
+			<template is="dom-repeat" items="{{data.views}}" id="thumbnails">			
+				<img src="{{item.mainurl}}" on-click="makeHero" is-hero$="{{isHero(item, hero)}}">
+			</template>
+		</div>
+
+		<array-selector id="selector" items="{{data.views}}" selected="{{hero}}" toggle></array-selector>
+
+		<div id="hero-wrapper">
+			<template is="dom-if" if="{{showMain}}">
+				<img src="{{hero.mainurl}}" id="hero">
+			</template>
+			<template is="dom-if" if="{{!showMain}}">
+				<img src="{{hero.otherurl}}" id="hero">
+			</template>
+		</div>
+	
+		<div id="text-wrapper">
+			<div id="text">{{data.text}}</div>
+			<div id="flip-wrapper">
+				<template is="dom-if" if="{{canRotate}}">
+					<div id="flip-subwrapper" on-click="rotate">
+						<iron-icon id="flip" icon="image:rotate-left"></iron-icon>
+						Rotate View
+					</div>
+				</template>
+			</div>
+			<div id="controls">
+				<div class="control-wrapper" id="right-control-wrapper" on-click="prev">
+					<iron-icon class="control" icon="chevron-left"></iron-icon>
+				</div>
+				<div class="control-wrapper" id="right-control-wrapper" on-click="next">
+					<iron-icon class="control" icon="chevron-right"></iron-icon>
+				</div>
+			</div>
+		</div>
+
+		<div id="spacer"></div>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'ensemble-view',
+
+			properties: {
+				data: {
+					type: Object,
+					value: function() { return {}; }
+				},
+
+				hero: {
+					type: Object,
+					value: function() { return {}; },
+					computed: "computeHero(data)"
+				},
+
+				showMain: {
+					type: Boolean,
+					value: true
+				},
+
+				canRotate: {
+					type: Boolean,
+					value: false,
+					computed: "computeCanRotate(hero)"
+				}
+			},
+
+			computeHero: function(data) {
+				if (typeof data !== 'undefined' && typeof data.views !== 'undefined' && data.views.length > 0) {
+					return data.views[0];
+				}
+				else {
+					//console.log("data");
+				}
+			},
+
+			isHero: function(item, hero) {
+				return item == hero;
+			},
+
+			makeHero: function(e) {
+				this.showMain = true;
+				var item = this.$.thumbnails.itemForElement(e.target);
+				if (!this.isHero(item, this.hero)) {
+					this.$.selector.select(item);
+				}
+			},
+
+			rotate: function() {
+				if (this.canRotate) {
+					this.showMain = !this.showMain;
+				}
+			},
+
+			computeCanRotate: function(hero) {
+				return typeof hero !== 'undefined' && 
+				hero !== null &&
+				typeof hero.mainurl !== 'undefined' && 
+				typeof hero.otherurl !== 'undefined';
+			},
+
+			attached: function() {
+				this.hero = this.computeHero(this.data);
+			},
+
+			next: function(e) {
+				var index = this.data.views.indexOf(this.hero);
+				this.showMain = true;
+				if (index == this.data.views.length - 1) {
+					if (this.data.views.length > 1) {
+						this.$.selector.select(this.data.views[0]);
+					}
+				}
+				else {
+					this.$.selector.select(this.data.views[index + 1]);
+				}
+			},
+
+			prev: function(e) {
+				var index = this.data.views.indexOf(this.hero);
+				this.showMain = true;
+				if (index == 0) {
+					if (this.data.views.length > 1) {
+						this.$.selector.select(this.data.views[this.data.views.length - 1]);
+					}
+				}
+				else {
+					this.$.selector.select(this.data.views[index - 1]);
+				}
+			}
+		})
+	</script>
+</dom-module>

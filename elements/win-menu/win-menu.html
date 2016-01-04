@@ -1,0 +1,195 @@
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+
+<dom-module id="win-menu">
+  <style>
+  :host {
+    display: block; /* important for sizing and spacing */
+    box-sizing: border-box;
+    @apply(--win-menu-theme);
+  }
+
+  /* spacing around whole menu */
+  :host[depth="0"] {
+    padding: var(--win-menu-whole-menu-padding);
+  }
+
+  /* insert horizontal rules between top level menus */
+  :host[depth="1"]:before, :host[depth="1"]:last-of-type:after {
+    content: "";
+    display: block;
+    @apply(--win-menu-divider-theme);
+  }
+
+  /* main (top level) title styling, overrides general menu title styling */
+  :host[depth="0"] > #menu-title {
+    @apply(--win-menu-main-title-theme);
+  }
+
+  /* styling for all titles */
+  #menu-title {
+    @apply(--win-menu-title-theme);
+  }
+
+  #menu-title:hover {
+    /*@apply(--win-menu-hover-theme);*/
+  }
+
+  :host:not([is-menu]):hover {
+    @apply(--win-menu-hover-theme);
+  }
+
+  :host:not([is-menu]) {
+    @apply(--win-menu-item-theme);
+  }
+
+  #item-link {
+    @apply(--win-menu-item-link-theme);
+  }
+
+  #item-link:hover {
+    @apply(--win-menu-item-link-hover-theme);
+  }
+
+  :host[menu-is-open] #menu-title {
+    @apply(--win-menu-open-menu-theme); 
+  }
+
+  #collapse-arrow {
+    float: right;
+  }
+
+  </style>
+
+  <template>
+    <template is="dom-if" if="{{isMenu}}">
+      <div id="menu-title" on-click="toggle">
+        <template is="dom-if" if="{{hasIcon}}">
+          <iron-icon id="title-icon" icon="{{data.icon}}"></iron-icon>
+        </template>
+        <!-- -->{{data.name}}<!-- for some odd reason must have no whitespace between tags around moustaches !-->
+        <template is="dom-if" if="{{isCollapsable}}">
+          <template is="dom-if" if="{{!menuIsOpen}}">
+            <iron-icon id="collapse-arrow" icon="arrow-drop-down"></iron-icon>
+          </template>
+          <template is="dom-if" if="{{menuIsOpen}}">
+            <iron-icon id="collapse-arrow" icon="arrow-drop-up"></iron-icon>
+          </template>
+        </template>
+      </div>
+      <iron-collapse id="collapse" opened="{{menuIsOpen}}">
+        <template is="dom-repeat" items="{{data.items}}">
+          <win-menu data="{{item}}" depth="{{childDepth}}"></win-menu>
+        </template>
+      </iron-collapse>
+    </template>
+    <template is="dom-if" if="{{!isMenu}}">
+      <a id="item-link" href$="{{makeLink(data)}}" onclick$="{{makeClickHandler(data)}}">{{data.text}}</a>
+    </template>
+
+    <content></content>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'win-menu',
+
+      ready: function() {
+        //console.log(this.isMenu);
+      },
+
+      properties: {
+      	depth: { 
+      		type: Number,
+	      	value: 0,
+          notify: true,
+          reflectToAttribute: true // could be used for css styling
+      	},
+        childDepth: { // the computed depth of submenus
+          type: Number,
+          value: 1,
+          computed: "computeNextDepth(depth)"
+        },
+        data: { // menu structure and content
+          type: Object,
+          value: function() { return {}; },
+          notify: true
+        },
+        isMenu: { // true if a menu or submenu, false if simple menu item
+          type: Boolean,
+          computed: "computeIsMenu(data)",
+          reflectToAttribute: true
+        },
+        isCollapsable: {
+          type: Boolean,
+          value: false,
+          computed: "computeIsCollapsable(data)"
+        },
+        menuIsOpen: {
+          type: Boolean,
+          value: true,
+          reflectToAttribute: true,
+          notify: true,
+          computed: "computeIsOpen(data)"
+        },
+        hasIcon: {
+          type: Boolean,
+          value: false,
+          computed: "computeHasIcon(data)"
+        }
+      },
+
+      computeIsMenu: function(data) {
+        // menus are objects that contain an items array
+        if(typeof data === 'object' && typeof data.items !== 'undefined' && data.items instanceof Array) {
+          return true;
+        }
+        return false;
+      },
+
+      computeIsCollapsable: function(data) {
+        return this.isMenu && typeof data.collapsable !== 'undefined' && data.collapsable;
+      },
+
+      computeIsOpen: function(data) {
+        // defaults to true. Only closed if the attribute is explicitly set to false
+        if(this.isMenu && this.isCollapsable && typeof data.opened !== 'undefined' && !data.opened) {
+          return false;
+        }
+        return true;
+      },
+
+      computeNextDepth: function(depth) {
+        return depth + 1;
+      },
+
+      computeHasIcon: function(data) {
+        // if the icon attribute is present in the menu object and it's none empty
+        return typeof data.icon !== 'undefined' && data.icon !== "";
+      },
+
+      toggle: function() {
+        if(this.isCollapsable) {
+          this.$$("#collapse").toggle();
+        }
+      },
+
+      makeLink: function(data) {
+        //console.log(data);
+        if (typeof data.link !== 'undefined' && data.link !== "") {
+          return data.link;
+        }
+        return "#";
+      },
+
+      makeClickHandler: function(data) {
+        //console.log(data);
+        if (typeof data["on-click"] !== 'undefined' && data["on-click"] !== "") {
+          return data["on-click"];
+        }
+      }
+
+    });
+  </script>
+
+</dom-module>

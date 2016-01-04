@@ -1,0 +1,148 @@
+<style is="custom-style">
+
+/* Application theme */
+
+:root {
+  --dark-primary-color: #303F9F;
+  --mid-primary-color:#CCCCCC;
+  --light-primary-color: #FFFFFF;
+  --primary-text-color: #666666; /*text/icons*/
+  --lighter-text-color: #999999;
+  --primary-accent-color: #C1720D;
+  --primary-bg-color: #FFFFFF; 
+  --divider-color: #B6B6B6;
+}
+
+/* General styles */
+
+:root {
+  color: var(--primary-text-color);
+  font-family: Helvetica;
+}
+
+.paper-header {
+  margin: 1.5em 0;
+  position: relative;
+}
+
+win-menu {
+  margin-top: -4px;
+  --win-menu-hover-theme: {
+    color: var(--primary-accent-color);
+    cursor: pointer;
+    position: relative;
+  };
+  --win-menu-whole-menu-padding: 0 0 0 1em;
+  --win-menu-theme: {
+    padding-left: 0.5em;
+    letter-spacing: 0.1em;
+    line-height: 1.25em;
+  };
+  --win-menu-open-menu-theme: {
+    margin: 0.5em 0;
+  };
+  --win-menu-divider-theme: {
+    background: var(--divider-color);
+    height: 1px;
+    width: calc(100% + 1.5em); /* full width of the submenu, plus the extra from padding */
+    margin: 0.25em 0 0.25em -1.5em; /* pull to left to take occupy padded space */
+  };
+  --win-menu-main-title-theme: {
+    font-size: 1em;
+  };
+  --win-menu-title-theme: {
+    text-transform: uppercase;
+    font-size: 0.75em;
+  };
+  --win-menu-item-theme: {
+    text-transform: uppercase;
+    font-size: 0.75em;
+    color: var(--lighter-text-color);
+    padding: 0;
+  };
+  --win-menu-item-link-theme: {
+    text-decoration: none;
+    color: var(--lighter-text-color);
+  };
+  --win-menu-item-link-hover-theme: {
+    color: var(--primary-accent-color);
+  };
+}
+
+paper-icon-button {
+  position: fixed;
+  left: 0;
+  top: 0;
+  --paper-icon-button-ink-color: var(--primary-accent-color);
+}
+
+footer {
+  line-height: 3em;
+  font-size: 0.75em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 1em;
+}
+
+
+/*@media all and (min-height: 0px) and (max-height: 480px) and (orientation: landscape) { 
+  #main-logo {
+    display: none!important;
+  }
+}*/
+
+#social {
+  position: absolute;
+  top: -0.75em;
+  right: 0.5em;
+}
+
+#social img {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 0.25em;
+}
+
+/* Material Design Adaptive Breakpoints */
+/*
+  Below you'll find CSS media queries based on the breakpoint guidance
+  published by the Material Design team. You can choose to use, customise
+  or remove these breakpoints based on your needs.
+
+  http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints
+ */
+
+/* mobile-small */
+@media all and (min-width: 0px) and (max-width: 360px) and (orientation: portrait) { }
+/* mobile-large */
+@media all and (min-width: 361px) and (orientation: portrait) { }
+/* mobile-small-landscape */
+@media all and (min-width: 0px) and (max-width: 480px) and (orientation: landscape) { }
+/* mobile-large-landscape */
+@media all and (min-width: 481px) and (orientation: landscape) { }
+/* tablet-small-landscape */
+@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }
+/* tablet-large-landscape */
+@media all and (min-width: 961px) and (orientation: landscape) { }
+/* tablet-small */
+@media all and (min-width: 600px) and (orientation: portrait) { }
+/* tablet-large */
+@media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }
+/* desktop-x-small-landscape */
+@media all and (min-width: 0px) and (max-width: 480px) and (orientation: landscape) { }
+/* desktop-x-small */
+@media all and (min-width: 0px) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }
+/* desktop-small-landscape */
+@media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) { }
+/* desktop-small */
+@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }
+/* desktop-medium-landscape */
+@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }
+/* desktop-medium */
+@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }
+/* desktop-large */
+@media all and (min-width: 1281px) and (max-width: 1600px) { }
+/* desktop-xlarge */
+@media all and (min-width: 1601px) and (max-width: 1920px) { }
+</style>

@@ -1,0 +1,29 @@
+<link rel="import" href="/elements/ensemble-view/ensemble-view.html">
+
+<dom-module id="page-ensemble">
+	<style is="custom-style">
+		ensemble-view {
+		  --thumb-border-color: var(--primary-accent-color);
+		}
+	</style>
+	
+	<template>
+		<ensemble-view data="{{data}}"></ensemble-view>
+	</template>
+	<script>
+		Polymer({
+			is: 'page-ensemble',
+			properties: {
+				data: {
+					type: Object,
+					value: function() { return {}; },
+					computed: "computeData(collection, ensemble)",
+				}
+			},
+			computeData: function(collection, ensemble) {
+				console.log(collection+" "+ensemble);
+				return app.data[collection].ensembles[ensemble];
+			}
+		});
+	</script>
+</dom-module>
